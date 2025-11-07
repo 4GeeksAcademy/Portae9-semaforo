@@ -9,3 +9,76 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+
+
+/* Contenedor del semáforo */
+.traffic-light {
+  width: 100px;
+  background-color: #610505d2;
+  padding: 15px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* Cada luz */
+.light {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 10px auto;
+  opacity: 0.4;
+  transition: all 0.3s ease;
+}
+
+/* Colores base */
+.red {
+  background-color: red;
+}
+
+.yellow {
+  background-color: rgb(244, 244, 7);
+}
+
+.green {
+  background-color: rgb(8, 243, 8);
+}
+
+/* Luz activa (brillo) */
+.glow {
+  opacity: 1;
+  box-shadow: 0 0 30px 10px currentColor;
+}
+/* Soporte superior (colgante) */
+.hanger {
+  width: 10px;
+  height: 80px;
+  background-color: #555;
+  border-radius: 3px;
+  margin-bottom: 0; /* 👈 quita espacio entre poste y semáforo */
+  position: relative;
+  top: 0;
+}
+
+/* Poste inferior */
+.pole {
+  width: 10px;
+  height: 150px;
+  background-color: #555;
+  border-radius: 3px;
+  margin-top: 0; /* 👈 quita espacio entre semáforo y poste */
+  position: relative;
+  bottom: 0;
+}
+
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0.3; }
+}
+
+/* Aplica la animación solo a la luz activa */
+.glow {
+  opacity: 1;
+  box-shadow: 0 0 30px 10px currentColor;
+  animation: blink 1s infinite; /* 👈 hace que parpadee */
+}
